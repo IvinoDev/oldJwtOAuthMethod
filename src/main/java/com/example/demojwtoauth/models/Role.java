@@ -1,8 +1,14 @@
 package com.example.demojwtoauth.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Table(name = "roles")
 public class Role {
     @Id

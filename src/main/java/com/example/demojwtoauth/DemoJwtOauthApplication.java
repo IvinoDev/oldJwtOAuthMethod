@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class DemoJwtOauthApplication implements CommandLineRunner {
@@ -26,6 +28,11 @@ public class DemoJwtOauthApplication implements CommandLineRunner {
     @Autowired
     private AddRoleUser addRoleUser;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    String password = "adama123";
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -33,7 +40,7 @@ public class DemoJwtOauthApplication implements CommandLineRunner {
             roleRepository.creationRole();
         }
         if(userRepository.findAll().size()==0){
-            userRepository.creationUsers();
+            userRepository.creationUsers(passwordEncoder.encode(password));
 
         }
         if(userRepository.Verifier() == null){

@@ -1,5 +1,9 @@
 package com.example.demojwtoauth.services;
 
+import com.example.demojwtoauth.models.User;
+
+import java.util.List;
+
 public interface UsersCrud {
     String Supprimer(Long id_users);  // LA METHODE PERMETTANT DE SUPPRIMER UN COLLABORATEUR
 
